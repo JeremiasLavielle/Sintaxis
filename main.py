@@ -10,6 +10,7 @@ def adaptar(tipo, afd):
 
 lista_afds=[
     # Palabras reservadas y tokens específicos
+    adaptar("ID", afds.afd_id),
     adaptar("FOR", afds.afd_for),
     adaptar("ELSE", afds.afd_else),
     adaptar("RETURN", afds.afd_return),
