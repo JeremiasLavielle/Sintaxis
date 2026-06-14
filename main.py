@@ -88,3 +88,10 @@ def lexer_multiples_afds(codigo_fuente):
 
     tokens.append(("EOF", "EOF"))
     return tokens
+
+varchivo = open("Codigos_ejemplo/ejemplo1.txt")
+
+vcodigo = varchivo.readlines()
+
+print(lexer_multiples_afds(vcodigo))
+
