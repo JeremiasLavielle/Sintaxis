@@ -1,5 +1,5 @@
 
-import afds
+import afds, string
 
 def adaptar(tipo, afd):
     delta_tuplas = {}
@@ -10,20 +10,34 @@ def adaptar(tipo, afd):
 
 lista_afds=[
     # Palabras reservadas y tokens específicos
+    
+    adaptar("IF", afds.afd_if),
     adaptar("FOR", afds.afd_for),
+    adaptar("WHILE", afds.afd_while),
     adaptar("ELSE", afds.afd_else),
     adaptar("RETURN", afds.afd_return),
     adaptar("PRINT", afds.afd_print),
-    adaptar("READ", afds.afdread),
+    adaptar("READ", afds.afd_read),
     adaptar("BOOLVAL", afds.afd_boolval),
     adaptar("ASSIGN", afds.afd_assign),
-    #Resto de autómatas 
+
+    #Resto de autómatas
+
+    adaptar("RELOP", afds.afd_relop),
+    adaptar("ID", afds.afd_id),
+    adaptar("TYPE", afds.afd_type),
+    adaptar("NUM", afds.afd_num), 
     adaptar("UNLOGOP", afds.afd_unlogop),
-    adaptar("SEMICOL", afds.afd_semicol),
+    adaptar("STR", afds.afd_str),
+    adaptar("BINLOGOP", afds.afd_binlogop),
+    adaptar("ADDOP", afds.afd_addop),
+    adaptar("MULTOP", afds.afd_multop),
+    adaptar("LPAR", afds.afd_lpar),
+    adaptar("RPAR", afds.afd_rpar),
     adaptar("LBRACE", afds.afd_lbrace),
-    adaptar("STR", afds.afdstr),
-    adaptar("BINLOGOP", afds.afdbinlogop),
-    adaptar("ADDOP", afds.afdaddop),
+    adaptar("RBRACE", afds.afd_rbrace),
+    adaptar("COMMA", afds.afd_comma),
+    adaptar("SEMICOL", afds.afd_semicol)
 ]
 
 def lexer_multiples_afds(codigo_fuente):
