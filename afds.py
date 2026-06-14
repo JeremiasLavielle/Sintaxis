@@ -100,6 +100,68 @@ afd_else = {
     'estados_aceptados': [4]
 }
 
+afd_while = {
+    'estado_inicial': 0,
+    'alfabeto': ['w', 'h', 'i', 'l', 'e'],
+    'estados': [0, 1, 2, 3, 4, 5],
+    'delta': {
+        0: {'w': 1},
+        1: {'h': 2},
+        2: {'i': 3},
+        3: {'l': 4},
+        4: {'e': 5},
+        5: {}
+    },
+    'estados_aceptados': [5]
+}
+
+afd_relop = {
+    'estado_inicial': 0,
+    'alfabeto': ['=', '!', '<', '>'],
+    'estados': [0, 1, 2, 3, 4],
+    'delta': {
+        0: {'!': 1, '<': 2, '>': 3},
+        1: {'=': 4},
+        2: {'=': 4},
+        3: {'=': 4},
+        4: {}
+    },
+    'estados_aceptados': [2, 3, 4]
+}
+
+afd_lpar = {
+    'estado_inicial': 0,
+    'alfabeto': ['('],
+    'estados': [0, 1],
+    'delta': {
+        0: {'(': 1},
+        1: {}
+    },
+    'estados_aceptados': [1]
+}
+
+afd_rpar = {
+    'estado_inicial': 0,
+    'alfabeto': [')'],
+    'estados': [0, 1],
+    'delta': {
+        0: {')': 1},
+        1: {}
+    },
+    'estados_aceptados': [1]
+}
+
+afd_rbrace = {
+    'estado_inicial': 0,
+    'alfabeto': ['}'],
+    'estados': [0, 1],
+    'delta': {
+        0: {'}': 1},
+        1: {}
+    },
+    'estados_aceptados': [1]
+}
+
 afd_return = {
     'tipo_token': 'return',
     'estado_inicial': 0,
