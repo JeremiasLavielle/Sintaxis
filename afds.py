@@ -336,8 +336,3 @@ afd_num = {
     },
     'estados_aceptados': [1, 3]
 }
-git pull            # traer los últimos cambios antes de empezar
-# ...editar...
-git add .
-git commit -m "eliana"
-git push

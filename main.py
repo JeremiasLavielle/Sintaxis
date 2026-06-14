@@ -45,13 +45,12 @@ def lexer_multiples_afds(codigo_fuente):
     pos_actual = 0
     n = len(codigo_fuente)
 
-    while pos_actual < n:  # recorremos el código fuente
-        # Saltamos espacios en blanco: separan tokens pero no generan token
+    while pos_actual < n: # recorremos todos los caracteres del código fuente
+
         if codigo_fuente[pos_actual] in ESPACIOS:
             pos_actual += 1
             continue
 
-    while pos_actual < n: # recorremos todos los caracteres del código fuente
         longitud_mejor_match = 0
         tipo_mejor_match = None
         lexema_mejor_match = ''
