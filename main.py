@@ -1,39 +1,30 @@
-# Ejemplo de Lexer Basado en un múltiples AFDs
-# ============================================
 
-# Notas:
-# ------
-# - Este código es una idea de implementación, no puede correrse pues como no sabemos
-# el lenguaje para el cuál fue diseñado, no tenemos entrada disponible para el argumento
-# de entrada 'codigo_fuente'
-# - Ni tampoco disponemos de todos los tipos de tokens.
+import afds
 
-# Importante:
-# -----------
-# Para que este código funcione, debemos tener los AFDs que representan a cada uno de los tokens,
-# o importarlos desde otro archivo
-# En cada uno requerimos:
-# - 'tipo': clase de token que reconoce dicho autómata
-# - 'delta': dict[(estado, simbolo): estado_siguiente]
-# - 'estados_aceptados': list[int]
-# - 'estado_inicial': int
+def adaptar(tipo, afd):
+    delta_tuplas = {}
+    for estado, transiciones in afd['delta'].items():
+        for simbolo, destino in transiciones.items():
+            delta_tuplas[(estado, simbolo)] = destino
+    return (tipo, afd['estado_inicial'], delta_tuplas, set(afd['estados_aceptados']))
 
-
-# Construimos una lista de tuplas (puede ser una lista de listas, diccionarios, etc)
-# con todos los autómatas, con el siguiente formato para cada elemento de la lista:
-# (tipo, estado_inicial, delta, estados_aceptados)
-lista_afds = [
-    ("PALABRA_RESERVADA_1", 0, {(0, 'i'): 1, ...}, {3, 7}),
-    ("PALABRA_RESERVADA_2", 0, {(0, 'B'): 3, ...}, {4, 8}),
-    # ...etc
-    ("ID",      0, {(0, 'a'): 1, ...}, {5}),
-    ("NUMERO",  0, {(0, '1'): 1, ...}, {9}),
-    # ... etc
+lista_afds=[
+    # Palabras reservadas y tokens específicos
+    adaptar("FOR", afds.afd_for),
+    adaptar("ELSE", afds.afd_else),
+    adaptar("RETURN", afds.afd_return),
+    adaptar("PRINT", afds.afd_print),
+    adaptar("READ", afds.afdread),
+    adaptar("BOOLVAL", afds.afd_boolval),
+    adaptar("ASSIGN", afds.afd_assign),
+    #Resto de autómatas 
+    adaptar("UNLOGOP", afds.afd_unlogop),
+    adaptar("SEMICOL", afds.afd_semicol),
+    adaptar("LBRACE", afds.afd_lbrace),
+    adaptar("STR", afds.afdstr),
+    adaptar("BINLOGOP", afds.afdbinlogop),
+    adaptar("ADDOP", afds.afdaddop),
 ]
-# MUY IMPORTANTE: EL ORDEN EN QUE SE COLOCAN LOS AFDS EN lista_afds DETERMINA QUE TIPO
-# DE TOKEN SE SELECCIONA CUANDO UN LEXEMA VERIFICA MÁS DE UNO, ES DECIR, SE USA PARA ROMPER
-# EMPATES.
-# EN GENERAL LAS PALABRAS RESERVADAS TOMAN PRECEDENCIA, POR ESO EL ORDEN SUGERIDO.
 
 def lexer_multiples_afds(codigo_fuente):
     tokens = []
@@ -59,22 +50,22 @@ def lexer_multiples_afds(codigo_fuente):
                 estado_actual = delta[clave]
                 pos_lexema_actual += 1 # avanzamos hasta llegar al estado trampa del afd actual
                 if estado_actual in estados_aceptados:
-                    ultima_pos_aceptada = # TO DO --> ajustar apropiadamente
+                    ultima_pos_aceptada = pos_lexema_actual
 
             if ultima_pos_aceptada > pos_actual:
                 longitud_lexema_actual = ultima_pos_aceptada - pos_actual
                 if longitud_lexema_actual > longitud_mejor_match: # principio maximal munch, lexema más largo gana
                                                                   # si son iguales, se mantiene el actual
                                                                   # por eso importa el orden en lista_afds
-                    longitud_mejor_match = # TO DO --> Asignar apropiadamente
-                    tipo_mejor_match = # TO DO --> Asignar apropiadamente
-                    lexema_mejor_match = # TO DO --> Seleccionar lexema a guardar
+                    longitud_mejor_match = longitud_lexema_actual
+                    tipo_mejor_match = tipo
+                    lexema_mejor_match = codigo_fuente[pos_actual:ultima_pos_aceptada]
 
-        if best_longitud_lexema_actual == 0:
+        if longitud_mejor_match == 0:
             raise ValueError(f"Carácter Inesperado en posición {pos_actual}")
 
         tokens.append((tipo_mejor_match, lexema_mejor_match))
-        pos_actual += # TO DO --> Ajustar nueva posición actual apropiadamente
+        pos_actual += longitud_mejor_match
 
     tokens.append(("EOF", "EOF"))
     return tokens
