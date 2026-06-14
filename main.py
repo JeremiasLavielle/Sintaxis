@@ -40,10 +40,18 @@ lista_afds=[
     adaptar("SEMICOL", afds.afd_semicol)
 ]
 
+ESPACIOS = {' ', '\t', '\n', '\r'}
+
 def lexer_multiples_afds(codigo_fuente):
     tokens = []
     pos_actual = 0
     n = len(codigo_fuente)
+
+    while pos_actual < n:  # recorremos el código fuente
+        # Saltamos espacios en blanco: separan tokens pero no generan token
+        if codigo_fuente[pos_actual] in ESPACIOS:
+            pos_actual += 1
+            continue
 
     while pos_actual < n: # recorremos todos los caracteres del código fuente
         longitud_mejor_match = 0
