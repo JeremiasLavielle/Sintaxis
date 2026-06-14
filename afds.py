@@ -207,7 +207,7 @@ afd_lbrace = {
     'estados_aceptados': [1]
 }
 
-afdstr = {
+afd_str = {
     "tipo_token": "str",
     "estado_inicial": 0,
     "alfabeto": "UTF-8",
@@ -220,7 +220,7 @@ afdstr = {
     "estados_aceptados": [2]
 }
 
-afdread = {
+afd_read = {
     "tipo_token": "read",
     "estado_inicial": 0,
     "alfabeto": ["r","e","a","d" ],
@@ -235,7 +235,7 @@ afdread = {
     "estados_aceptados": [4]
 }
 
-afdbinlogop = {
+afd_binlogop = {
     "tipo_token": "binlogop",
     "estado_inicial": 0,
     "alfabeto": ["&","|" ],
@@ -248,7 +248,7 @@ afdbinlogop = {
     "estados_aceptados": [3]
 }
 
-afdaddop = {
+afd_addop = {
     "tipo_token": "addop",
     "estado_inicial": 0,
     "alfabeto": ["+","-" ],
