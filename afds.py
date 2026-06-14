@@ -23,7 +23,7 @@ afd_id = {
 afd_boolval = {
     'estado_inicial': 0,
     'alfabeto': ['t', 'r', 'u', 'e', 'f', 'a', 'l', 's'],
-    'estados': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    'estados': [0, 1, 2, 3, 4, 5, 6, 7, 8],
     'delta': {
         0: {'t': 1, 'f': 5},
         1: {'r': 2},
@@ -33,10 +33,9 @@ afd_boolval = {
         5: {'a': 6},
         6: {'l': 7},
         7: {'s': 8},
-        8: {'e': 9},
-        9: {},
+        8: {'e': 4},
     },
-    'estados_aceptados': [4, 9],
+    'estados_aceptados': [4],
 }
 
 afd_assign = {
