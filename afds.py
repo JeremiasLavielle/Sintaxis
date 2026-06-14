@@ -144,3 +144,55 @@ afd_lbrace = {
     },
     'estados_aceptados': [1]
 }
+
+afdstr = {
+    "tipo_token": "str",
+    "estado_inicial": 0,
+    "alfabeto": "UTF-8",
+    "estados": [0, 1, 2],
+    "delta": {  
+        0: {"'": 1},
+        1: {"cualquiera": 1,"'":2},
+        2: {},
+    },
+    "estados_aceptados": [2]
+}
+
+afdread = {
+    "tipo_token": "read",
+    "estado_inicial": 0,
+    "alfabeto": ["r","e","a","d" ],
+    "estados": [0, 1, 2, 3, 4],
+    "delta": {  
+        0: {"r": 1},
+        1: {"e": 2},
+        2: {"a": 3},
+        3: {"d": 4},
+        4: {},
+    },
+    "estados_aceptados": [4]
+}
+
+afdbinlogop = {
+    "tipo_token": "binlogop",
+    "estado_inicial": 0,
+    "alfabeto": ["&","|" ],
+    "estados": [0, 1, 2, 3],
+    "delta": { 
+        0: {"&": 1,"|":2},
+        1: {"&": 3},
+        2: {"|": 3},
+    },
+    "estados_aceptados": [3]
+}
+
+afdaddop = {
+    "tipo_token": "addop",
+    "estado_inicial": 0,
+    "alfabeto": ["+","-" ],
+    "estados": [0, 1],
+    "delta": { 
+        0: {"+": 1,"-":1},
+    },
+    "estados_aceptados": [1]
+}
