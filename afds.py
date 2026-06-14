@@ -71,3 +71,77 @@ afd_semicol = {
     },
     'estados_aceptados': [1],
 }
+
+afd_for = {
+    'tipo_token': 'for',
+    'estado_inicial': 0,
+    'alfabeto': ['f', 'o', 'r'],
+    'estados': [0, 1, 2, 3],
+    'delta': { 
+        0: {'f': 1},
+        1: {'o': 2},
+        2: {'r': 3},
+        3: {} 
+    },
+    'estados_aceptados': [3]
+}
+
+afd_else = {
+    'tipo_token': 'else',
+    'estado_inicial': 0,
+    'alfabeto': ['e', 'l', 's'], 
+    'estados': [0, 1, 2, 3, 4],
+    'delta': { 
+        0: {'e': 1},
+        1: {'l': 2},
+        2: {'s': 3},
+        3: {'e': 4},
+        4: {} 
+    },
+    'estados_aceptados': [4]
+}
+
+afd_return = {
+    'tipo_token': 'return',
+    'estado_inicial': 0,
+    'alfabeto': ['r', 'e', 't', 'u', 'n'],
+    'estados': [0, 1, 2, 3, 4, 5, 6],
+    'delta': { 
+        0: {'r': 1},
+        1: {'e': 2},
+        2: {'t': 3},
+        3: {'u': 4},
+        4: {'r': 5},
+        5: {'n': 6},
+        6: {} 
+    },
+    'estados_aceptados': [6]
+}
+
+afd_print = {
+    'tipo_token': 'print',
+    'estado_inicial': 0,
+    'alfabeto': ['p', 'r', 'i', 'n', 't'],
+    'estados': [0, 1, 2, 3, 4, 5],
+    'delta': { 
+        0: {'p': 1},
+        1: {'r': 2},
+        2: {'i': 3},
+        3: {'n': 4},
+        4: {'t': 5},
+        5: {} 
+    },
+    'estados_aceptados': [5]
+}
+
+afd_lbrace = {
+    'tipo_token': 'lbrace',
+    'estado_inicial': 0,
+    'alfabeto': ['{'],
+    'estados': [0, 1],
+    'delta': { 
+        0: {'{': 1},
+        1: {} 
+    },
+    'estados_aceptados': [1]
+}
