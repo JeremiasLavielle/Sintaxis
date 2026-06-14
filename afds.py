@@ -258,3 +258,86 @@ afdaddop = {
     },
     "estados_aceptados": [1]
 }
+afd_comma = {
+    'tipo_token': 'comma',
+    'estado_inicial': 0,
+    'alfabeto': [','],
+    'estados': [0, 1],
+    'delta': {
+        0: {',': 1},
+        1: {}
+    },
+    'estados_aceptados': [1]
+}
+
+afd_multop = {
+    'tipo_token': 'multop',
+    'estado_inicial': 0,
+    'alfabeto': ['*', '/'],
+    'estados': [0, 1, 2],
+    'delta': {
+        0: {'*': 1, '/': 2},
+        1: {},
+        2: {}
+    },
+    'estados_aceptados': [1, 2]
+}
+
+afd_if = {
+    'tipo_token': 'if',
+    'estado_inicial': 0,
+    'alfabeto': ['i', 'f'],
+    'estados': [0, 1, 2],
+    'delta': {
+        0: {'i': 1},
+        1: {'f': 2},
+        2: {}
+    },
+    'estados_aceptados': [2]
+}
+
+afd_type = {
+    'tipo_token': 'type',
+    'estado_inicial': 0,
+    'alfabeto': ['i', 'n', 't', 'f', 'l', 'o', 'a', 'b', 'v', 'd'],
+    'estados': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    'delta': {
+        0: {'i': 1, 'f': 4, 'b': 9, 'v': 13},
+        1: {'n': 2},
+        2: {'t': 3},
+        3: {},
+        4: {'l': 5},
+        5: {'o': 6},
+        6: {'a': 7},
+        7: {'t': 8},
+        8: {},
+        9: {'o': 10},
+        10: {'o': 11},
+        11: {'l': 12},
+        12: {},
+        13: {'o': 14},
+        14: {'i': 15},
+        15: {'d': 16},
+        16: {}
+    },
+    'estados_aceptados': [3, 8, 12, 16]
+}
+
+afd_num = {
+    'tipo_token': 'num',
+    'estado_inicial': 0,
+    'alfabeto': digitos + ['.'],
+    'estados': [0, 1, 2, 3],
+    'delta': {
+        0: {d: 1 for d in digitos},
+        1: {**{d: 1 for d in digitos}, '.': 2},
+        2: {d: 3 for d in digitos},
+        3: {d: 3 for d in digitos}
+    },
+    'estados_aceptados': [1, 3]
+}
+git pull            # traer los últimos cambios antes de empezar
+# ...editar...
+git add .
+git commit -m "eliana"
+git push
