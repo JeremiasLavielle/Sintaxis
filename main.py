@@ -64,22 +64,22 @@ def lexer_multiples_afds(codigo_fuente):
                 estado_actual = delta[clave]
                 pos_lexema_actual += 1 # avanzamos hasta llegar al estado trampa del afd actual
                 if estado_actual in estados_aceptados:
-                    ultima_pos_aceptada = # TO DO --> ajustar apropiadamente
+                    ultima_pos_aceptada = pos_lexema_actual
 
             if ultima_pos_aceptada > pos_actual:
                 longitud_lexema_actual = ultima_pos_aceptada - pos_actual
                 if longitud_lexema_actual > longitud_mejor_match: # principio maximal munch, lexema más largo gana
                                                                   # si son iguales, se mantiene el actual
                                                                   # por eso importa el orden en lista_afds
-                    longitud_mejor_match = # TO DO --> Asignar apropiadamente
-                    tipo_mejor_match = # TO DO --> Asignar apropiadamente
-                    lexema_mejor_match = # TO DO --> Seleccionar lexema a guardar
+                    longitud_mejor_match = longitud_lexema_actual
+                    tipo_mejor_match = tipo
+                    lexema_mejor_match = codigo_fuente[pos_actual:ultima_pos_aceptada]
 
-        if best_longitud_lexema_actual == 0:
+        if longitud_mejor_match == 0:
             raise ValueError(f"Carácter Inesperado en posición {pos_actual}")
 
         tokens.append((tipo_mejor_match, lexema_mejor_match))
-        pos_actual += # TO DO --> Ajustar nueva posición actual apropiadamente
+        pos_actual += longitud_mejor_match
 
     tokens.append(("EOF", "EOF"))
     return tokens
