@@ -89,18 +89,4 @@ def lexer_multiples_afds(codigo_fuente):
     tokens.append(("EOF", "EOF"))
     return tokens
 
-varchivo = open("Codigos_ejemplo/programa1.mc") #EJEMPLO 1
-#varchivo = open("Codigos_ejemplo/programa2.mc") #EJEMPLO 2
-#varchivo = open("Codigos_ejemplo/programa3.mc") #EJEMPLO 3
-#varchivo = open("Codigos_ejemplo/programa4.mc") #EJEMPLO 4
-#varchivo = open("Codigos_ejemplo/programa5.mc") #EJEMPLO 5
-#varchivo = open("Codigos_ejemplo/programa6.mc") #EJEMPLO 6
-#varchivo = open("Codigos_ejemplo/programa7.mc") #EJEMPLO 7
-#varchivo = open("Codigos_ejemplo/programa8.mc") #EJEMPLO 8
-#varchivo = open("Codigos_ejemplo/programa9.mc") #EJEMPLO 9
-#varchivo = open("Codigos_ejemplo/programa10.mc") #EJEMPLO 10
-
-vcodigo = varchivo.readlines()
-
-print(lexer_multiples_afds(vcodigo))
 
