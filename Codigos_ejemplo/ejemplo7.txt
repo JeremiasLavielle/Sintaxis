@@ -1,0 +1,2 @@
+int test=(10+5)*2/4;
+bool flag=!true||false;

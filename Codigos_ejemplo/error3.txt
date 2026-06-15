@@ -1,0 +1,3 @@
+bool condicion1 = true;
+bool condicion2 = false;
+bool resultado = condicion1 & condicion2;

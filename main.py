@@ -12,6 +12,7 @@ lista_afds=[
     # Palabras reservadas y tokens específicos
     adaptar("FOR", afds.afd_for),
     adaptar("WHILE", afds.afd_while),
+    adaptar("IF", afds.afd_if),
     adaptar("ELSE", afds.afd_else),
     adaptar("RETURN", afds.afd_return),
     adaptar("PRINT", afds.afd_print),

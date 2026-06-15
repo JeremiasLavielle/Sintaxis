@@ -1,0 +1,2 @@
+int cantidad = 10;
+float precio$ = 5.5;

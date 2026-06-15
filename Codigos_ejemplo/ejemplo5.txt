@@ -1,0 +1,3 @@
+bool esValido = true;
+bool comprobacion = !esValido && false;
+bool resultadoFinal = esValido || comprobacion;

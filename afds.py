@@ -207,14 +207,20 @@ afd_lbrace = {
     'estados_aceptados': [1]
 }
 
+caracteres_string = letras + digitos + guion + [' ', '.', ',', '!', '?', ';', ':']
+
+#bucle del estado 1
+delta_str_q1 = {c: 1 for c in caracteres_string}
+delta_str_q1['"'] = 2 # Transición para cerrar las comillas dobles
+
 afd_str = {
     "tipo_token": "str",
     "estado_inicial": 0,
-    "alfabeto": "UTF-8",
+    "alfabeto": letras + digitos + guion,
     "estados": [0, 1, 2],
     "delta": {  
-        0: {"'": 1},
-        1: {"cualquiera": 1,"'":2},
+        0: {'"': 1},
+        1: delta_str_q1,
         2: {},
     },
     "estados_aceptados": [2]
@@ -258,6 +264,7 @@ afd_addop = {
     },
     "estados_aceptados": [1]
 }
+
 afd_comma = {
     'tipo_token': 'comma',
     'estado_inicial': 0,
