@@ -23,11 +23,11 @@ lista_afds=[
     #Resto de autómatas
 
     adaptar("RELOP", afds.afd_relop),
-    adaptar("ID", afds.afd_id),
     adaptar("TYPE", afds.afd_type),
+    adaptar("STR", afds.afd_str),
+    adaptar("ID", afds.afd_id),
     adaptar("NUM", afds.afd_num), 
     adaptar("UNLOGOP", afds.afd_unlogop),
-    adaptar("STR", afds.afd_str),
     adaptar("BINLOGOP", afds.afd_binlogop),
     adaptar("ADDOP", afds.afd_addop),
     adaptar("MULTOP", afds.afd_multop),
