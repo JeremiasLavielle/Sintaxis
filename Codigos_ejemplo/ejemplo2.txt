@@ -1,0 +1,7 @@
+activo = true;
+listo = false;
+encendido = !activo;
+while ( activo ) {
+    activo = false;
+}
+ 

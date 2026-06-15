@@ -1,0 +1,6 @@
+a = 5;
+b = 3;
+resultado = a + b - 2;
+mayor = a > b;
+print ( resultado );
+ 
