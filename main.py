@@ -93,5 +93,7 @@ varchivo = open("Codigos_ejemplo/ejemplo1.txt")
 
 vcodigo = varchivo.readlines()
 
-print(lexer_multiples_afds(vcodigo))
+if __name__ == "__main__":
+    vcodigo = "..."
+    print(lexer_multiples_afds(vcodigo))
 
