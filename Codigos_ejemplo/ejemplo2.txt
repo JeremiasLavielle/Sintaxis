@@ -1,7 +1,8 @@
-activo = true;
-listo = false;
-encendido = !activo;
-while ( activo ) {
-    activo = false;
+bool activo=true;
+bool listo=false;
+bool encendido=!activo||listo;
+
+while(activo&&!listo){
+    activo=false;
 }
  

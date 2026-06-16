@@ -12,6 +12,7 @@ archivos = [
     "Codigos_ejemplo/error1.txt",
     "Codigos_ejemplo/error2.txt",
     "Codigos_ejemplo/error3.txt",
+    "Codigos_ejemplo/error4.txt"
 ]
 
 @pytest.mark.parametrize("archivo", archivos)

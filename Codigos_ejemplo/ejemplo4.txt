@@ -1,23 +1,13 @@
-void analizarDatos() {
+void analizarIgualdad() {
     float valorA, valorB;
-    bool esIgual, esDistinto, esMayor, esMenor, esMenorIgual, esMayorIgual;
+    bool esIgual, esDistinto, esMenor;
     
     valorA = 15.5;
     valorB = 30.0;
     
     for (float i = 0.0; i <= valorB; i = i + 1.0) {
-        
         esIgual = (i == valorA);
-        
         esDistinto = (i != valorA);
-        
         esMenor = (i < valorA);
-        
-        esMayor = (i > valorA);
-        
-        esMenorIgual = (i <= valorA);
-        
-        esMayorIgual = (i >= valorA);
-        
     }
 }

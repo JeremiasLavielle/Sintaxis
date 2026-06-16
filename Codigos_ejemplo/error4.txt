@@ -1,0 +1,2 @@
+float mitad = .5;
+float entero_punto = 10.;

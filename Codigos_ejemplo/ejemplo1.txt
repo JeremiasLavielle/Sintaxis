@@ -1,6 +1,10 @@
-contador = 0;
-while ( contador < 10 ) {
-    contador = contador + 1;
-    print ( contador );
+int contador = 0 ;
+
+while (contador<10) {
+    if (contador==5){
+        print(contador);
+    }else{
+        contador=contador+1;
+    }
 }
 return contador;

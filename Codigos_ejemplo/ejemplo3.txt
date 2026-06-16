@@ -1,6 +1,13 @@
-a = 5;
-b = 3;
-resultado = a + b - 2;
-mayor = a > b;
-print ( resultado );
- 
+void analizarLimites() {
+    float valorA, valorB;
+    bool esMayor, esMenorIgual, esMayorIgual;
+    
+    valorA = 15.5;
+    valorB = 30.0;
+    
+    for (float i = 0.0; i <= valorB; i = i + 1.0) {
+        esMayor = (i > valorA);
+        esMenorIgual = (i <= valorA);
+        esMayorIgual = (i >= valorA);
+    }
+}

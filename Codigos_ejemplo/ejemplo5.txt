@@ -1,3 +1,2 @@
-bool esValido = true;
-bool comprobacion = !esValido && false;
-bool resultadoFinal = esValido || comprobacion;
+string mensaje = "while (a == b) { return true; }";
+print(mensaje);

@@ -207,14 +207,17 @@ afd_lbrace = {
     'estados_aceptados': [1]
 }
 
-#bucle del estado 1
-delta_str_q1 = {c: 1 for c in letras + digitos + guion + [' ', '.', ',', '!', '?', ';', ':']}
+#Caracteres str
+caracteres_permitidos = list(string.printable)
+caracteres_permitidos.remove('"') 
+
+delta_str_q1 = {c: 1 for c in caracteres_permitidos} #bucle del estado 1
 delta_str_q1['"'] = 2 # Transición para cerrar las comillas dobles
 
 afd_str = {
     "tipo_token": "str",
     "estado_inicial": 0,
-    "alfabeto": letras + digitos + guion + [' ', '.', ',', '!', '?', ';', ':'],
+    "alfabeto": list(string.printable),
     "estados": [0, 1, 2],
     "delta": {  
         0: {'"': 1},
@@ -305,27 +308,24 @@ afd_type = {
     'tipo_token': 'type',
     'estado_inicial': 0,
     'alfabeto': ['i', 'n', 't', 'f', 'l', 'o', 'a', 'b', 'v', 'd'],
-    'estados': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    'estados': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     'delta': {
-        0: {'i': 1, 'f': 4, 'b': 9, 'v': 13},
+        0: {'i': 1, 'f': 3, 'b': 7, 'v': 10},
         1: {'n': 2},
-        2: {'t': 3},
-        3: {},
-        4: {'l': 5},
-        5: {'o': 6},
-        6: {'a': 7},
-        7: {'t': 8},
-        8: {},
-        9: {'o': 10},
+        2: {'t': 13},
+        3: {'l': 4},
+        4: {'o': 5},
+        5: {'a': 6},
+        6: {'t': 13},
+        7: {'o': 8},
+        8: {'o': 9},
+        9: {'l': 13},
         10: {'o': 11},
-        11: {'l': 12},
-        12: {},
-        13: {'o': 14},
-        14: {'i': 15},
-        15: {'d': 16},
-        16: {}
+        11: {'i': 12},
+        12: {'d': 13},
+        13: {}
     },
-    'estados_aceptados': [3, 8, 12, 16]
+    'estados_aceptados': [13]
 }
 
 afd_num = {

@@ -1,5 +1,3 @@
-if (base == 0) {
-    return false;
-} else {
-    return true;
-}
+int while_contador = 0;
+bool trueFlag = false;
+float floatante = 1.0;

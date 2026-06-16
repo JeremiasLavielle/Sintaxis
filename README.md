@@ -1,29 +1,18 @@
-# afds — Analizador de sintaxis (AFDs)
 
-Proyecto de análisis de sintaxis basado en autómatas finitos deterministas (AFD).
+# Analizador Léxico de Mini C
 
-`afds.py` define varios AFDs para reconocer tokens del lenguaje:
+Este documento describe el propósito de cada archivo de prueba incluido para evaluar el analizador léxico. Los casos de prueba están divididos en **ejemplos válidos** (para comprobar que el lexer reconoce los tokens) y **ejemplos con errores** (para detectar fallos léxicos).
 
-- `afd_id` — identificadores (letra o `_`, seguido de letras, dígitos o `_`)
-- `afd_boolval` — valores booleanos (`true` / `false`)
-- `afd_assign` — operador de asignación (`=`)
-- `afd_unlogop` — operador lógico unario (`!`)
-- `afd_semicol` — punto y coma (`;`)
+## Casos de Éxito
 
-## Uso
+*   **ejemplo1.txt**,**ejemplo2.txt**, **ejemplo3.txt**, **ejemplo4.txt**: Se encargan de poner a prueba el funcionamiento de todos los tokens con diferentes ejemplos de codigos usuales.
+*   **ejemplo5.txt**: Pone a prueba el token string, y asegura que palabras reservadas dentro de comillas no sean reconocidas como tokens individuales.
+*   **ejemplo6.txt**: Verifica que los identificadores que contienen palabras reservadas como parte de su nombre sean reconocidos correctamente y no se dividan.
+*   **ejemplo7.txt**: Pone a prueba el lexer en el caso de que varios tokens esten agrupados sin espacios en blanco de por medio.
 
-```bash
-python afds.py
-```
+## Casos de Error
 
-## Colaboradores
-
-Trabajo en equipo. Para subir cambios:
-
-```bash
-git pull            # traer los últimos cambios antes de empezar
-# ...editar...
-git add .
-git commit -m "describí tu cambio"
-git push
-```
+*   **error1.txt**: Evalúa la detección de caracteres especiales no válidos dentro de un identificador.
+*   **error2.txt**: Prueba el manejo de errores ante un string no cerrado.
+*   **error3.txt**: Verifica el comportamiento ante operadores incompletos o mal escitos.
+*   **error4.txt**: Pone a prueba la detección de numeros decimales mal escritos.
